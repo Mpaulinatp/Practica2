@@ -23,7 +23,8 @@ def crearIn(request):
     if infoActivo.is_valid():
         infoActivo.save()
         return redirect('inventario')
-    return render(request, 'inventario/crearIn.html')
+    responsables = Respons.objects.all()
+    return render(request, 'inventario/crearIn.html', {'responsables':responsables})
 
 def borrarIn(request, id):
     equipo =Invent.objects.get(id=id)
