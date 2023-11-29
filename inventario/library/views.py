@@ -19,7 +19,12 @@ def inventario(request):
     return render(request, 'inventario/listarIn.html', { 'equipos':equipos})
 
 def crearIn(request):
-    return render(request, 'inventario/crearIn.html')
+    infoActivo=InventForm(request.POST or None)
+    if infoActivo.is_valid():
+        infoActivo.save()
+        return redirect('inventario')
+    responsables = Respons.objects.all()
+    return render(request, 'inventario/crearIn.html', {'responsables':responsables})
 
 def borrarIn(request, id):
     equipo =Invent.objects.get(id=id)

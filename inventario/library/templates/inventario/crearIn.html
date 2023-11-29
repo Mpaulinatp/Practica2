@@ -1,56 +1,117 @@
-{% extends 'base.html'  %}
+{% extends 'base.html' %}
 
-{% block titulo  %} Crear nuevo equipo {% endblock %}
+{% block titulo %} Crear nuevo activo {% endblock %}
 
-{% block contenido %} 
-<form action="" method="post">
+{% block contenido %}
+<style>
+  body {
+      background-color: #f8f9fa; /* Fondo de la página */
+      color: #343a40; /* Color del texto */
+  }
+
+  .card-body {
+      background-color: #ffffff; /* Fondo de la tarjeta */
+      color: #172c3c; /* Color del texto en la tarjeta */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 15px;
+  }
+
+  .form-group label {
+      color: #172c3c; /* Color de las etiquetas de los campos de formulario */
+  }
+
+  .form-control {
+      border: 1px solid #ced4da; /* Color del borde de los campos de formulario */
+      border-radius: 5px;
+  }
+
+  .form-select {
+      color: #172c3c; /* Color del texto en el select */
+  }
+
+  .custom-radio .form-check-input {
+      margin-top: 5px;
+  }
+
+  .btn-primary {
+      background-color: #274862; /* Color de fondo del botón primario */
+      border: 1px solid #274862; /* Color del borde del botón primario */
+  }
+
+  .btn-danger {
+      background-color: #942732; /* Color de fondo del botón de peligro */
+      border: 1px solid #dc3545; /* Color del borde del botón de peligro */
+  }
+
+  .card-title{
+     margin-bottom: 20px;
+  }
+</style>
+<div class="card-body">
+  <h4 class="card-title">Crear un nuevo activo</h4>
+  <form action="" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" required>
+      </div>
 
     <div class="form-group">
-        <label for="" >Nombre</label>
-        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" required>
-        
-      </div>
+      <label for="">Marca</label>
+      <input type="text" name="marca" id="marca" class="form-control" placeholder="" aria-describedby="helpId" required>
 
-      <div class="form-group">
-        <label for="" >Marca</label>
-        <input type="text" name="marca" id="marca" class="form-control" placeholder="" aria-describedby="helpId" required>
-        
-      </div>
-
-     
-      <div class="form-group">
-        <label for="" >Modelo</label>
-        <input type="text" name="modelo" id="modelo" class="form-control" placeholder="" aria-describedby="helpId"  required>
-        
-      </div>
-
-      <div class="form-group">
-        <label for="" >Serial</label>
-        <input type="text" name="serial" id="serial" class="form-control" placeholder="" aria-describedby="helpId" required>
-        
-      </div>
-
-      <div class="form-group">
-        <label for="" >Area</label>
-        <input type="text" name="area" id="area" class="form-control" placeholder="" aria-describedby="helpId" required>
-        </div>
-
-      <div class="form-group">
-        <label for="" >Responsable</label>
-        <input type="text" name="responsable" id="responsable" class="form-control" placeholder="" aria-describedby="helpId" required>
-        
-      </div>
+    </div>
 
 
+    <div class="form-group">
+      <label for="">Modelo</label>
+      <input type="text" name="modelo" id="modelo" class="form-control" placeholder="" aria-describedby="helpId" required>
+
+    </div>
+
+    <div class="form-group">
+      <label for="">Serial</label>
+      <input type="text" name="serial" id="serial" class="form-control" placeholder="" aria-describedby="helpId" required>
+
+    </div>
+
+    <div class="form-group">
+      <label for="responsable">Responsable</label>
       <br>
-      <div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        <a name="" id="" class="btn btn-danger" href="{%url 'inventario'%}">Cancelar</a> 
+      <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" type="text" name="responsable" id="responsable" required>
+          <option disabled selected value="">Selecciona un responsable</option>
+          {% for responsable in responsables %}
+          <option value="{{ responsable.nombre|add:" "|add:responsable.apellido }}">{{ responsable.nombre|add:" "|add:responsable.apellido }}</option>
+          {% endfor %}
+      </select>
+    </div>
 
+    <div class="form-group">
+      <label for="area" class="custom-label" >Área</label>
+      <br>
+      <div class="form-check form-check-inline custom-radio">
+        <input class="form-check-input" type="radio" name="area" id="biomedica" value="Biomédica" required>
+        <label  class="form-check-label" for="biomedica">Biomédica</label>
       </div>
+      <div class="form-check form-check-inline custom-radio">
+        <input class="form-check-input" type="radio" name="area" id="infraestructura" value="Infraestructura" required>
+        <label class="form-check-label" for="infraestructura">Infraestructura</label>
+      </div>
+      <div class="form-check form-check-inline custom-radio">
+        <input class="form-check-input" type="radio" name="area" id="sistemas" value="Sistemas" required>
+        <label class="form-check-label" for="sistemas">Sistemas</label>
+      </div>
+    </div>
 
-
-</form>
+    <br>
+    <div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <a name="" id="" class="btn btn-danger" href="{%url 'inventario'%}">Cancelar</a>
+  </div>
+  </form>
+</div>
 
 
 {% endblock %}
