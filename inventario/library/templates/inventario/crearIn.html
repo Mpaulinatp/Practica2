@@ -4,76 +4,69 @@
 
 {% block contenido %}
 <div class="card-body">
-  <h4 class="card-title" style="color: #172c3c">Crear un nuevo activo</h4>
-<form action="" method="post">
-  {% csrf_token %}
-  <div class="form-group">
-    <label for="">Nombre</label>
-    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" required>
+  <h4 class="card-title" style="color: #172c3c;">Crear un nuevo activo</h4>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="">Nombre</label>
+      <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" required>
 
-  </div>
+    </div>
 
-  <div class="form-group">
-    <label for="">Marca</label>
-    <input type="text" name="marca" id="marca" class="form-control" placeholder="" aria-describedby="helpId" required>
+    <div class="form-group">
+      <label for="">Marca</label>
+      <input type="text" name="marca" id="marca" class="form-control" placeholder="" aria-describedby="helpId" required>
 
-  </div>
+    </div>
 
 
-  <div class="form-group">
-    <label for="">Modelo</label>
-    <input type="text" name="modelo" id="modelo" class="form-control" placeholder="" aria-describedby="helpId" required>
+    <div class="form-group">
+      <label for="">Modelo</label>
+      <input type="text" name="modelo" id="modelo" class="form-control" placeholder="" aria-describedby="helpId" required>
 
-  </div>
+    </div>
 
-  <div class="form-group">
-    <label for="">Serial</label>
-    <input type="text" name="serial" id="serial" class="form-control" placeholder="" aria-describedby="helpId" required>
+    <div class="form-group">
+      <label for="">Serial</label>
+      <input type="text" name="serial" id="serial" class="form-control" placeholder="" aria-describedby="helpId" required>
 
-  </div>
+    </div>
 
-  <div class="form-group">
-    <label for="">Responsable</label>
+    <div class="form-group">
+      <label for="responsable">Responsable</label>
+      <br>
+      <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" type="text" name="responsable" id="responsable" required>
+          <option disabled selected value="">Selecciona un responsable</option>
+          {% for responsable in responsables %}
+          <option value="{{ responsable.nombre|add:" "|add:responsable.apellido }}">{{ responsable.nombre|add:" "|add:responsable.apellido }}</option>
+          {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name" class="custom-label" >Área</label>
+      <br>
+      <div class="form-check form-check-inline custom-radio">
+        <input class="form-check-input" type="radio" name="area" id="area" value="Biomédica" >
+        <label  class="form-check-label" for="inlineRadio1">Biomédica</label>
+      </div>
+      <div class="form-check form-check-inline custom-radio">
+        <input class="form-check-input" type="radio" name="area" id="area" value="Infraestructura" >
+        <label class="form-check-label" for="inlineRadio2">Infraestructura</label>
+      </div>
+      <div class="form-check form-check-inline custom-radio">
+        <input class="form-check-input" type="radio" name="area" id="area" value="Sistemas" >
+        <label class="form-check-label" for="inlineRadio3">Sistemas</label>
+      </div>
+    </div>
+
     <br>
-    <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" type="text" name="responsable" id="responsable" required>
-        <option selected>Responsable</option>
-        {% for responsable in responsables %}
-        <option value="{{ responsable.nombre|add:" "|add:responsable.apellido }}">{{ responsable.nombre|add:" "|add:responsable.apellido }}</option>
-        {% endfor %}
-    </select>
-  </div>
+    <div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <a name="" id="" class="btn btn-danger" href="{%url 'inventario'%}">Cancelar</a>
 
-  <div class="form-group">
-    <label for="name" class="custom-label" >Área</label>
-    <br>
-    <div class="form-check form-check-inline custom-radio">
-      <input class="form-check-input" type="radio" name="area" id="area" value="Biomédica" >
-      <label  class="form-check-label" for="inlineRadio1">Biomédica</label>
     </div>
-    <div class="form-check form-check-inline custom-radio">
-      <input class="form-check-input" type="radio" name="area" id="area" value="Infraestructura" >
-      <label class="form-check-label" for="inlineRadio2">Infraestructura</label>
-    </div>
-    <div class="form-check form-check-inline custom-radio">
-      <input class="form-check-input" type="radio" name="area" id="area" value="Sistemas" >
-      <label class="form-check-label" for="inlineRadio3">Sistemas</label>
-    </div>
-  </div>
-
-
-
-
-
-
-  <br>
-  <div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    <a name="" id="" class="btn btn-danger" href="{%url 'inventario'%}">Cancelar</a>
-
-  </div>
-
-
-</form>
+  </form>
 </div>
 
 

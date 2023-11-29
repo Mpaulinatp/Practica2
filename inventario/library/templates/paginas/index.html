@@ -25,18 +25,21 @@
     }
 
     .card-footer {
-        background-color: white;
+        background-color: #172c3c;
         border-top: 1px solid white;
     }
 
     .logo-container {
         text-align: center;
         margin-top: 20px;
+        display: flex;  /* Added flex display for alignment */
+        align-items: center;  /* Center items horizontally */
     }
 
     .logo {
         max-width: 100%;
         height: auto;
+        margin-right: 10px;  /* Add margin for spacing between logo and text */
     }
 </style>
 
@@ -44,11 +47,11 @@
     <div class="card-header">
         <div class="logo-container">
             <span class="material-icons" style="font-size: 6em">bloodtype</span>
-        </div>
-        <div>
-            Hospital San Cristóbal
-            <br>
-            Sistema de inventario electrónico
+            <div style="font-size: 1.2em;">
+                Hospital San Cristóbal
+                <br>
+                Sistema de inventario electrónico
+            </div>
         </div>
     </div>
     <div class="card-body">
@@ -61,3 +64,4 @@
 </div>
 
 {% endblock %}
+
