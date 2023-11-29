@@ -15,26 +15,26 @@
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                    <tr>
-                        <th scope="col" style="color: #151d25;">Nombre</th>
-                        <th scope="col" style="color: #151d25;">Marca</th>
-                        <th scope="col" style="color: #151d25;">Modelo</th>
-                        <th scope="col" style="color: #151d25;">Serial</th>
-                        <th scope="col" style="color: #151d25;">Área</th>
-                        <th scope="col" style="color: #151d25;">Responsable</th>
-                        <th scope="col" style="color: #151d25;">Acciones</th>
+                    <tr style="background-color: #151d25;">
+                        <th scope="col" style="color: #ffffff;">Nombre</th>
+                        <th scope="col" style="color: #ffffff;">Marca</th>
+                        <th scope="col" style="color: #ffffff;">Modelo</th>
+                        <th scope="col" style="color: #ffffff;">Serial</th>
+                        <th scope="col" style="color: #ffffff;">Área</th>
+                        <th scope="col" style="color: #ffffff;">Responsable</th>
+                        <th scope="col" style="color: #ffffff;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for equipo in equipos %}
                     <tr class="">
-                        <td scope="row">{{equipo.nombre}}</td>
-                        <td>{{equipo.marca}}</td>
-                        <td>{{equipo.modelo}}</td>
-                        <td>{{equipo.serial}}</td>
-                        <td>{{equipo.area}}</td>
-                        <td>{{equipo.responsable}}</td>
-                        <td>
+                        <td scope="row" style="border-bottom: 2px solid #151d25;">{{equipo.nombre}}</td>
+                        <td style="border-bottom: 2px solid #151d25;">{{equipo.marca}}</td>
+                        <td style="border-bottom: 2px solid #151d25;">{{equipo.modelo}}</td>
+                        <td style="border-bottom: 2px solid #151d25;">{{equipo.serial}}</td>
+                        <td style="border-bottom: 2px solid #151d25;">{{equipo.area}}</td>
+                        <td style="border-bottom: 2px solid #151d25;">{{equipo.responsable}}</td>
+                        <td style="border-bottom: 2px solid #151d25;">
                             <!-- botón EDITAR -->
                             <a name="" id="" class="btn" href="{% url 'editar' %}" role="button">
                                 <span class="material-icons" style="color: #151d25;">edit</span>
