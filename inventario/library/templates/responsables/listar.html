@@ -6,22 +6,26 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="card-title">Lista de responsables<a name="" id="" class="btn" href="{% url 'crearRe' %}" role="button"><span class="material-icons" style="color: #151d25; font-size: 2em;">add_box</span></a></h4>
+        <h4 class="card-title">Lista de Responsables
+            <a name="" id="" class="btn" href="{% url 'crear' %}" role="button">
+                <span class="material-icons" style="color: #274862; font-size: 2em;">add_box</span>
+            </a>
+        </h4>
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                    <tr>
-                        <th scope="col">Documento</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
+                    <tr style="background-color: #274862;">
+                        <th scope="col" style="color: #ffffff;">Documento</th>
+                        <th scope="col" style="color: #ffffff;">Nombre</th>
+                        <th scope="col" style="color: #ffffff;">Correo</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for responsable in responsables %}
                     <tr class="">
-                        <td scope="row">{{ responsable.documento}}</td>
-                        <td>{{ responsable.nombre|add:" "|add:responsable.apellido }}</td>
-                        <td>{{ responsable.correo }}</td>
+                        <td scope="row" style="border-bottom: 2px solid #274862;">{{ responsable.documento}}</td>
+                        <td style="border-bottom: 2px solid #274862;">{{ responsable.nombre|add:" "|add:responsable.apellido }}</td>
+                        <td style="border-bottom: 2px solid #274862;">{{ responsable.correo }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
