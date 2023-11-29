@@ -3,18 +3,76 @@
 
 {% block contenido %}
 
+<style>
+    body {
+        background-color: white;
+        color: white;
+    }
+
+    .card {
+        margin-top: 50px;
+        background-color: #274862;
+        color: white;
+    }
+
+    .card-header {
+        background-color: #172c3c;
+        border-bottom: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .card-footer {
+        background-color: white;
+        border-top: 1px solid white;
+        color: black;
+    }
+
+    .logo-container {
+        text-align: center;
+        margin-top: 20px;
+        display: flex;  /* Added flex display for alignment */
+        align-items: center;  /* Center items horizontally */
+    }
+
+    .logo {
+        max-width: 100%;
+        height: auto;
+        margin-right: 10px;  /* Add margin for spacing between logo and text */
+    }
+</style>
+
 <div class="card">
     <div class="card-header">
- Sistema de inventario electrónico
+        <div class="logo-container">
+            <span class="material-icons" style="font-size: 6em">bloodtype</span>
+            <div style="font-size: 1.2em;">
+                Hospital San Cristóbal
+                <br>
+                Sistema de inventario electrónico
+            </div>
+        </div>
     </div>
     <div class="card-body">
-        <h4 class="card-title">Title</h4>
-        <p class="card-text">Text</p>
+        <h4 class="card-title">Bienvenido</h4>
+        <p class="card-text">Explora nuestro sistema de inventario electrónico y simplifica la gestión de tus activos.</p>
     </div>
-    <div class="card-footer text-muted">
+    <div class="card-footer">
         Práctica 2
+        <br>
+        s
+        <br>
+        s
+        <br>
+        s
+        <br>
+        s
+        <br>
+        s
     </div>
 </div>
 
-
 {% endblock %}
+
