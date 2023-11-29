@@ -21,8 +21,10 @@ def inventario(request):
 def crearIn(request):
     return render(request, 'inventario/crearIn.html')
 
-def borrarIn(request):
-    return render(request, 'inventario/borrarIn.html')
+def borrarIn(request, id):
+    equipo =Invent.objects.get(id=id)
+    equipo.delete()
+    return redirect('inventario')
 
 def  editarIn(request):
     return render(request, 'inventario/editarIn.html')

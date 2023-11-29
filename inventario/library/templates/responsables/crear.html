@@ -4,6 +4,7 @@
 
 {% block contenido %} 
 <form action="" method="post">
+    {% csrf_token %}
         <div class="form-group">
           <label for="" >Documento</label>
           <input type="text" name="documento" id="documento" class="form-control" placeholder="" aria-describedby="helpId" required>
