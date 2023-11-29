@@ -3,6 +3,8 @@
 {% block titulo %} Crear nuevo activo {% endblock %}
 
 {% block contenido %}
+<div class="card-body">
+  <h4 class="card-title" style="color: #172c3c">Crear un nuevo activo</h4>
 <form action="" method="post">
   {% csrf_token %}
   <div class="form-group">
@@ -72,6 +74,7 @@
 
 
 </form>
+</div>
 
 
 {% endblock %}
