@@ -19,6 +19,10 @@ def inventario(request):
     return render(request, 'inventario/listarIn.html', { 'equipos':equipos})
 
 def crearIn(request):
+    infoActivo=InventForm(request.POST or None)
+    if infoActivo.is_valid():
+        infoActivo.save()
+        return redirect('inventario')
     return render(request, 'inventario/crearIn.html')
 
 def borrarIn(request, id):
