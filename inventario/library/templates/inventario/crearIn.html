@@ -31,7 +31,19 @@
   </div>
 
   <div class="form-group">
+    <label for="">Responsable</label>
+    <br>
+    <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" type="text" name="responsable" id="responsable" required>
+        <option selected>Responsable</option>
+        {% for responsable in responsables %}
+        <option value="{{ responsable.nombre|add:" "|add:responsable.apellido }}">{{ responsable.nombre|add:" "|add:responsable.apellido }}</option>
+        {% endfor %}
+    </select>
+  </div>
+  
+  <div class="form-group">
     <label for="name" class="custom-label" >Área</label>
+    <br>
     <div class="form-check form-check-inline custom-radio">
       <input class="form-check-input" type="radio" name="area" id="area" value="Biomédica" >
       <label  class="form-check-label" for="inlineRadio1">Biomédica</label>
@@ -47,15 +59,8 @@
   </div>
 
 
-  <div class="form-group">
-    <label for="">Responsable</label>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" type="text" name="responsable" id="responsable" required>
-      <option selected>Responsable</option>
-      {% for responsable in responsables %}
-      <option value="{{ responsable.nombre|add:" "|add:responsable.apellido }}">{{ responsable.nombre|add:" "|add:responsable.apellido }}</option>
-      {% endfor %}
-    </select>
-  </div>
+
+
 
 
   <br>
