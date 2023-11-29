@@ -38,14 +38,19 @@
         .overflow-auto {
             height: 100%;
         }
+        .sidebar .nav-link:hover {
+            background-color: #213d52; /* Color más claro al pasar el cursor */
+            color: #fff; /* Texto blanco */
+            border-radius: 15px;
+        }
     </style>
 
     <title style="color: #172c3c">{% block titulo %} {% endblock %}</title>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <nav class="col-md-2 d-none d-md-block sidebar">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar">
             <!-- Logo de la empresa -->
             <div class="text-center mb-4">
                 <!-- <img src="logo.jpg" alt="Logo de la empresa" class="img-fluid"> -->

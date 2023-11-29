@@ -6,7 +6,29 @@ from .forms import ResponsForm
 from .forms import InventForm
 
 def inicio(request):
-    return render(request, 'paginas/index.html')
+    equipos = Invent.objects.all()
+    total_equipos = equipos.count()
+
+    biomedica_count = equipos.filter(area='Biomédica').count()
+    infraestructura_count = equipos.filter(area='Infraestructura').count()
+    sistemas_count = equipos.filter(area='Sistemas').count()
+
+    # Calcula el porcentaje antes de pasarlos a la plantilla
+    porcentaje_biomedica = 0 if total_equipos == 0 else (biomedica_count / total_equipos) * 100
+    porcentaje_infraestructura = 0 if total_equipos == 0 else (infraestructura_count / total_equipos) * 100
+    porcentaje_sistemas = 0 if total_equipos == 0 else (sistemas_count / total_equipos) * 100
+
+    return render(request, 'paginas/index.html', {
+        'equipos': equipos,
+        'total_equipos': total_equipos,
+        'biomedica_count': biomedica_count,
+        'infraestructura_count': infraestructura_count,
+        'sistemas_count': sistemas_count,
+        'porcentaje_biomedica': porcentaje_biomedica,
+        'porcentaje_infraestructura': porcentaje_infraestructura,
+        'porcentaje_sistemas': porcentaje_sistemas,
+    })
+
 
 
 def responsables(request):

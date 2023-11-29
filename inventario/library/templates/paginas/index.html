@@ -5,12 +5,12 @@
 
 <style>
     body {
-        background-color: white;
-        color: white;
+        background-color: #f8f9fa; /* Fondo de la página */
+        color: #343a40; /* Color del texto */
     }
 
     .card {
-        margin-top: 50px;
+        margin-top: 30px;
         background-color: #274862;
         color: white;
     }
@@ -28,6 +28,7 @@
         background-color: white;
         border-top: 1px solid white;
         color: black;
+        padding: 35px;
     }
 
     .logo-container {
@@ -42,6 +43,16 @@
         height: auto;
         margin-right: 10px;  /* Add margin for spacing between logo and text */
     }
+
+    .card-body {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agregar sombreado al card-body */
+        padding: 20px;
+    }
+
+    .parrafo {
+        text-align: justify; /* Justificar el texto */
+    }
+
 </style>
 
 <div class="card">
@@ -57,22 +68,43 @@
     </div>
     <div class="card-body">
         <h4 class="card-title">Bienvenido</h4>
-        <p class="card-text">Explora nuestro sistema de inventario electrónico y simplifica la gestión de tus activos.</p>
+        <p class="card-text">Explora nuestro sistema de inventario electrónico y simplifica la gestión de los activos.</p>
     </div>
-    <div class="card-footer">
-        Práctica 2
-        <br>
-        s
-        <br>
-        s
-        <br>
-        s
-        <br>
-        s
-        <br>
-        s
+
+<div class="card-footer">
+    <h4 class="card-title" style="color: #172c3c">Activos por área</h4>
+    <br>
+    <p style="color: #172c3c" class="parrafo">
+        Nuestra IPS se enorgullece de implementar un sistema de gestión de inventario electrónico de vanguardia, diseñado para optimizar y fortalecer el control de activos en cada una de nuestras áreas especializadas. En el ámbito biomédico, este sistema asegura una gestión eficiente de equipos médicos y dispositivos, garantizando su disponibilidad y funcionamiento óptimo. Para el sector de infraestructura, la plataforma facilita la supervisión detallada de los activos físicos, permitiendo un mantenimiento preventivo proactivo y una gestión de recursos eficaz. En el área de sistemas, el inventario electrónico proporciona una visión integral de los recursos tecnológicos, asegurando una infraestructura informática robusta y actualizada.
+    </p>
+    <br>
+    <div class="row">
+        <div class="col">
+            <h6 style="color: #172c3c">Biomédica</h6>
+            <div class="progress" style="height: 25px ;" role="progressbar" aria-valuenow="{{ biomedica_count }}" aria-valuemin="0" aria-valuemax="{{ total_equipos }}">
+                <div class="progress-bar progress-bar-lg" style="background-color: #995052; width: {{ porcentaje_biomedica }}%">{{ biomedica_count }} ({{ porcentaje_biomedica|floatformat:1 }}%)</div>
+            </div>
+        </div>
+        <div class="col">
+            <h6 style="color: #172c3c">Infraestructura</h6>
+            <div class="progress" style="height: 25px" role="progressbar" aria-valuenow="{{ infraestructura_count }}" aria-valuemin="0" aria-valuemax="{{ total_equipos }}">
+                <div class="progress-bar progress-bar-lg" style="background-color: #d96831; width: {{ porcentaje_infraestructura }}%">{{ infraestructura_count }} ({{ porcentaje_infraestructura|floatformat:1 }}%)</div>
+            </div>
+        </div>
+        <div class="col">
+            <h6 style="color: #172c3c">Sistemas</h6>
+            <div class="progress"style="height: 25px"  role="progressbar" aria-valuenow="{{ sistemas_count }}" aria-valuemin="0" aria-valuemax="{{ total_equipos }}">
+                <div class="progress-bar" style="background-color: #e6b33d; width: {{ porcentaje_sistemas }}%">{{ sistemas_count }} ({{ porcentaje_sistemas|floatformat:1 }}%)</div>
+            </div>
+        </div>
     </div>
+    <br>
+</div>
+
+    
+    </div>
+    
+    
 </div>
 
 {% endblock %}
-
