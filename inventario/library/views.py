@@ -53,8 +53,14 @@ def borrarIn(request, id):
     equipo.delete()
     return redirect('inventario')
 
-def  editarIn(request):
-    return render(request, 'inventario/editarIn.html')
+def  editarIn(request,id):
+    inventario=Invent.objects.get(id=id)
+    formInvent=InventForm(request.POST or None , instance=inventario)
+    responsabless = Respons.objects.all()
+    if formInvent.is_valid() and request.method == 'POST':
+        formInvent.save()
+        return redirect('inventario')
+    return render(request, 'inventario/editarIn.html', {'formInvent':formInvent, 'responsabless':responsabless})
 
 def crearRe(request):
     infoResponsable=ResponsForm(request.POST or None)
