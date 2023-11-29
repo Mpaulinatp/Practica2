@@ -7,18 +7,22 @@
 
     <div class="card-body">
         <!-- BOTON DE CREAR Y TITULO -->
-        <h4 class="card-title">Equipos en inventario<a name="" id="" class="btn" href="{% url 'crear' %}" role="button"><span class="material-icons text-muted" >add_box</span></a></h4>
+        <h4 class="card-title">Activos en inventario
+            <a name="" id="" class="btn" href="{% url 'crear' %}" role="button">
+                <span class="material-icons" style="color: #151d25; font-size: 2em;">add_box</span>
+            </a>
+        </h4>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Modelo</th>
-                        <th scope="col">Serial</th>
-                        <th scope="col">Área</th>
-                        <th scope="col">Responsable</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" style="color: #151d25;">Nombre</th>
+                        <th scope="col" style="color: #151d25;">Marca</th>
+                        <th scope="col" style="color: #151d25;">Modelo</th>
+                        <th scope="col" style="color: #151d25;">Serial</th>
+                        <th scope="col" style="color: #151d25;">Área</th>
+                        <th scope="col" style="color: #151d25;">Responsable</th>
+                        <th scope="col" style="color: #151d25;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,15 +31,19 @@
                         <td scope="row">{{equipo.nombre}}</td>
                         <td>{{equipo.marca}}</td>
                         <td>{{equipo.modelo}}</td>
-                        <td >{{equipo.serial}}</td>
+                        <td>{{equipo.serial}}</td>
                         <td>{{equipo.area}}</td>
                         <td>{{equipo.responsable}}</td>
                         <td>
                             <!-- botón EDITAR -->
-                            <a name="" id="" class="btn" href="{% url 'editar' %}" role="button" ><span class="material-icons text-muted" >edit</span></a>
+                            <a name="" id="" class="btn" href="{% url 'editar' %}" role="button">
+                                <span class="material-icons" style="color: #151d25;">edit</span>
+                            </a>
                             
                             <!-- Botón BORRAR -->
-                            <a name="" id="" class="btn" href="{% url 'borrar' equipo.id %}" role="button"><span class="material-icons text-muted" >delete</span></a>
+                            <a name="" id="" class="btn" href="{% url 'borrar' equipo.id %}" role="button">
+                                <span class="material-icons" style="color: #151d25;">delete</span>
+                            </a>
                         
                         </td>
                     </tr>
