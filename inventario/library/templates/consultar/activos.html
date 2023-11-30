@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block contenido %}  
+    <div class="row">    
+        <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+              <div class="card-title mb-0">
+                <h5 class="m-0 me-2"> área Biomédica</h5>
+                <small class="text-muted">Equipos</small>
+              </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr style="background-color: #274862;">
+                            <th scope="col" style="color: #ffffff;">Nombre</th>
+                            <th scope="col" style="color: #ffffff;">Marca</th>
+                            <th scope="col" style="color: #ffffff;"> Modelo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for equipo in equipos_biomedica %}
+                            <tr>
+                                <td>{{ equipo.nombre }}</td>
+                                <td>{{ equipo.marca }}</td>
+                                <td>{{ equipo.modelo }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+                
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+              <div class="card-title mb-0">
+                <h5 class="m-0 me-2">área de sistemas</h5>
+                <small class="text-muted">Equipos</small>
+              </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr style="background-color: #274862;">
+                            <th scope="col" style="color: #ffffff;">Nombre</th>
+                            <th scope="col" style="color: #ffffff;">Marca</th>
+                            <th scope="col" style="color: #ffffff;">Modelo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for equipo in equipos_sistemas %}
+                            <tr>
+                                <td>{{ equipo.nombre }}</td>
+                                <td>{{ equipo.marca }}</td>
+                                <td>{{ equipo.modelo }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+            <div class="card h-100">
+              <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                <div class="card-title mb-0">
+                  <h5 class="m-0 me-2">área de
+                    Infraestructura</h5>
+                  <small class="text-muted">Equipos</small>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr style="background-color: #274862;">
+                            <th scope="col" style="color: #ffffff;">Nombre</th>
+                            <th scope="col" style="color: #ffffff;">Marca</th>
+                            <th scope="col" style="color: #ffffff;">Modelo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for equipo in equipos_infraestructura %}
+                            <tr>
+                                <td>{{ equipo.nombre }}</td>
+                                <td>{{ equipo.marca }}</td>
+                                <td>{{ equipo.modelo }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+              </div>
+            </div>
+          </div>
+</body>
+{% endblock %}
+</html>
