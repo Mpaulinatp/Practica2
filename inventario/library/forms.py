@@ -5,22 +5,20 @@ from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from .models import *
 
-
 class ResponsForm(forms.ModelForm):
     class Meta:
         model= Respons
-        fields= '_all_'
+        fields= '__all__'
     
 
 class InventForm(forms.ModelForm):
         class Meta:
             model= Invent
-            fields= '_all_'
-
+            fields= '__all__'
 
 class UserLoginForm(AuthenticationForm):
-    def _init_(self, *args, **kwargs):
-        super(UserLoginForm, self)._init_(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super(UserLoginForm, self).__init__(*args, **kwargs)
 
     username = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control', 'placeholder': 'Correo electrónico', 'autocomplete': 'off'}),
